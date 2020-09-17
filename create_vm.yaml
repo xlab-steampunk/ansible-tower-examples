@@ -1,0 +1,12 @@
+---
+- hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Create a VM
+      steampunk.aws.ec2_instance:
+        name: "{{ i_name }}"
+        type: "{{ i_type }}"
+        ami: ami-0e8286b71b81c3cc1
+        key_pair: demo_key
+        subnet: "{{ i_subnet }}"
